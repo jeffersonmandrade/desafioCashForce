@@ -54,15 +54,25 @@ module.exports = {
       },
       orderId :{
         type: Sequelize.INTEGER(11),
-        allowNull: false
-
+        allowNull: true,
+        onUpdate:'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'orders',
+          key: 'id'
+        }
       },
       sponsorId :{
         type: Sequelize.INTEGER(11),
-        allowNull:false
+        allowNull:true,
+        onUpdate:'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'sponsors',
+          key: 'id',
       },
-
     },
+  },
     {
       engine: 'InnoDB',
       charset: 'latin1'
