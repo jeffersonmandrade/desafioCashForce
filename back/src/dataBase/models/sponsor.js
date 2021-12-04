@@ -1,31 +1,34 @@
 module.exports = (sequelize, DataTypes) => {
-  const Sponsor = sequelize.define("sponsor", {
+  const sponsor = sequelize.define("sponsor", {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    name: Sequelize.STRING(255),
-    tradingName: Sequelize.STRING(255),
-    cashforceTax: Sequelize.STRING(255),
-    responsibleName: Sequelize.STRING(255),
-    responsibleEmail: Sequelize.STRING(255),
-    responsiblePosition: Sequelize.STRING(255),
-    responsiblePhone: Sequelize.STRING(255),
-    responsibleMobile: Sequelize.STRING(255),
-    website: Sequelize.STRING(255),
-    postalCode: Sequelize.STRING(255),
-    address: Sequelize.STRING(255),
-    number: Sequelize.STRING(255),
-    complement: Sequelize.STRING(255),
-    neighborhood: Sequelize.STRING(255),
-    city: Sequelize.STRING(255),
-    state: Sequelize.STRING(255),
-    bank: Sequelize.STRING(255),
-    bankAgency: Sequelize.STRING(255),
-    account: Sequelize.STRING(255),
-    phoneNumber: Sequelize.STRING(255),
-    situation: Sequelize.STRING(255),
-    situationDate: Sequelize.STRING(255),
-    cnpjId: Sequelize.INTEGER(11),
-    email: Sequelize.STRING(255),
+    name: DataTypes.STRING,
+    tradingName: DataTypes.STRING,
+    cashforceTax: DataTypes.STRING,
+    responsibleName: DataTypes.STRING,
+    responsibleEmail: DataTypes.STRING,
+    responsiblePosition: DataTypes.STRING,
+    responsiblePhone: DataTypes.STRING,
+    responsibleMobile: DataTypes.STRING,
+    website: DataTypes.STRING,
+    postalCode: DataTypes.STRING,
+    address: DataTypes.STRING,
+    number: DataTypes.STRING,
+    complement: DataTypes.STRING,
+    neighborhood: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    bank: DataTypes.STRING,
+    bankAgency: DataTypes.STRING,
+    account: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    situation: DataTypes.STRING,
+    situationDate: DataTypes.STRING,
+    cnpjId: { type: DataTypes.INTEGER, foreingKey: true },
+    email: DataTypes.STRING,
   });
-
-  return Sponsor;
+  sponsor.associate = (models) => {
+    sponsor.belongsTo(models.cnpj,{foreignKey:"cnpjId", as:"cnpj"});
+    sponsor.hasMany(models.offer,{foreignKey:"sponsorId", as:"offer"})
+  }
+  return sponsor;
 };

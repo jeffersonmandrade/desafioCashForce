@@ -1,12 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-  const Orderportion = sequelize.define("orderportion", {
+  const orderportion = sequelize.define("orderportion", {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    nDup: DataTypes.STRING(255),
-    dVenc: DataTypes.STRING(255),
-    vDup: DataTypes.STRING(255),
-    availableToMarket: DataTypes.TINYINT(1),
-    orderId: DataTypes.INTEGER(11),
+    nDup: DataTypes.STRING,
+    dVenc: DataTypes.STRING,
+    vDup: DataTypes.STRING,
+    availableToMarket: DataTypes.TINYINT,
+    orderId: { type: DataTypes.INTEGER, foreingKey: true },
   });
 
-  return Orderportion;
+  orderportion.associate = (models) => {
+    orderportion.belongsTo(models.order,{foreignKey:"orderId", as: "order"})
+
+  }
+
+  return orderportion;
+
 };

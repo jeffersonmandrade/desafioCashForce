@@ -1,27 +1,35 @@
 module.exports = (sequelize, DataTypes) => {
-  const Order = sequelize.define("order", {
+  const order = sequelize.define("order", {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    orderNfId: DataTypes.STRING(255),
-    orderNumber: DataTypes.STRING(255),
-    orderPath: DataTypes.STRING(255),
-    orderFileName: DataTypes.STRING(255),
-    orderOriginalName: DataTypes.STRING(255),
-    emissionDate: DataTypes.STRING(255),
-    pdfFile: DataTypes.STRING(255),
-    emitedTo: DataTypes.STRING(255),
-    nNf: DataTypes.STRING(255),
-    CTE: DataTypes.STRING(255),
-    value: DataTypes.STRING(255),
-    cnpjId: DataTypes.INTEGER(11),
-    userId: DataTypes.INTEGER(11),
-    buyerId: DataTypes.INTEGER(11),
-    providerId: DataTypes.INTEGER(11),
-    orderStatusBuyer: DataTypes.INTEGER(11),
-    orderStatusProvider: DataTypes.INTEGER(11),
-    deliveryReceipt: DataTypes.INTEGER(11),
-    cargoPackingList: DataTypes.INTEGER(11),
-    deliveryCtrc: DataTypes.INTEGER(11),
+    orderNfId: DataTypes.STRING,
+    orderNumber: DataTypes.STRING,
+    orderPath: DataTypes.STRING,
+    orderFileName: DataTypes.STRING,
+    orderOriginalName: DataTypes.STRING,
+    emissionDate: DataTypes.STRING,
+    pdfFile: DataTypes.STRING,
+    emitedTo: DataTypes.STRING,
+    nNf: DataTypes.STRING,
+    CTE: DataTypes.STRING,
+    value: DataTypes.STRING,
+    cnpjId: { type: DataTypes.INTEGER, foreingKey: true },
+    userId: { type: DataTypes.INTEGER, foreingKey: true },
+    buyerId: { type: DataTypes.INTEGER, foreingKey: true },
+    providerId: { type: DataTypes.INTEGER, foreingKey: true },
+    orderStatusBuyer: DataTypes.INTEGER,
+    orderStatusProvider: DataTypes.INTEGER,
+    deliveryReceipt: DataTypes.INTEGER,
+    cargoPackingList: DataTypes.INTEGER,
+    deliveryCtrc: DataTypes.INTEGER,
   });
+  order.associate = (models) => {
+    order.belongsTo(models.buyer, {foreignKey:"buyerId", as:"buyer"});
+    order.belongsTo(models.cnpj, {foreignKey:"cnpjId", as:"cnpj"});
+    order.belongsTo(models.user, {foreignKey:"userId", as:"user"});
+    order.belongsTo(models.provider, {foreignKey:"providerId", as:"provider"});
+    order.hasMany(models.orderportion,{foreignKey:"orderId", as:"orderportion"})
+    order.hasMany(models.offer,{foreignKey:"OrderId", as: "offer"})
 
-  return Order;
+  }
+  return order;
 };

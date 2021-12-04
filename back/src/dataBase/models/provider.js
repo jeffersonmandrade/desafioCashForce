@@ -1,32 +1,37 @@
 module.exports = (sequelize, DataTypes) => {
-  const Provider = sequelize.define("provider", {
+  const provider = sequelize.define("provider", {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    name: DataTypes.STRING(255),
-    tradingName: DataTypes.STRING(255),
-    cashforceTax:DataTypes.STRING(255),
-    responsibleName: DataTypes.STRING(255),
-    responsibleEmail: DataTypes.STRING(255),
-    responsiblePosition:DataTypes.STRING(255),
-    responsiblePhone: DataTypes.STRING(255),
-    responsibleMobile: DataTypes.STRING(255),
-    website: DataTypes.STRING(255),
-    postalCode:DataTypes.STRING(255),
-    address:DataTypes.STRING(255),
-    number: DataTypes.STRING(255),
-    complement:DataTypes.STRING(255),
-    neighborhood: DataTypes.STRING(255),
-    city: DataTypes.STRING(255),
-    state: DataTypes.STRING(255),
-    bank: DataTypes.STRING(255),
-    bankAgency:DataTypes.STRING(255),
-    account:DataTypes.STRING(255),
-    documents:DataTypes.STRING(255),
-    phoneNumber:DataTypes.STRING(255),
-    situation:DataTypes.STRING(255),
-    situationDate:DataTypes.STRING(255),
-    cnpjId:DataTypes.INTEGER(11),
-    email:DataTypes.STRING(255),
+    name: DataTypes.STRING,
+    tradingName: DataTypes.STRING,
+    cashforceTax:DataTypes.STRING,
+    responsibleName: DataTypes.STRING,
+    responsibleEmail: DataTypes.STRING,
+    responsiblePosition:DataTypes.STRING,
+    responsiblePhone: DataTypes.STRING,
+    responsibleMobile: DataTypes.STRING,
+    website: DataTypes.STRING,
+    postalCode:DataTypes.STRING,
+    address:DataTypes.STRING,
+    number: DataTypes.STRING,
+    complement:DataTypes.STRING,
+    neighborhood: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    bank: DataTypes.STRING,
+    bankAgency:DataTypes.STRING,
+    account:DataTypes.STRING,
+    documents:DataTypes.STRING,
+    phoneNumber:DataTypes.STRING,
+    situation:DataTypes.STRING,
+    situationDate:DataTypes.STRING,
+    cnpjId:{ type: DataTypes.INTEGER, foreingKey: true },
+    email:DataTypes.STRING,
   });
 
-  return Provider;
+  provider.associate = (models) => {
+    provider.belongsTo(models.cnpj,{foreignKey:"cnpjId", as:"cnpj"})
+    provider.hasMany(models.order,{foreignKey:"providerId", as:"order"})
+  }
+
+  return provider;
 };
