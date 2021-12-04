@@ -4,6 +4,7 @@ module.exports = {
       id: {
         primaryKey: true,
         type: Sequelize.INTEGER(11),
+        autoIncrement:true,
       },
       name: {
         allowNull: false,
@@ -112,6 +113,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("users");
+    await queryInterface.dropTable("buyers");
   },
 };
