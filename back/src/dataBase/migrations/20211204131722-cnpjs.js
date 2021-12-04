@@ -11,7 +11,8 @@ module.exports = {
       },
       cnpj:{
         allowNull:false,
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING(255),
+        unique: true
         },
       companyType: {
         allowNull:false,
