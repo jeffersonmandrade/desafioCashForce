@@ -12,7 +12,7 @@ module.exports = {
         },
         name: {
           allowNull: false,
-          type: Sequelize.STRING(255)
+          type: Sequelize.STRING(255),
         },
         tradingName: {
           defaultValue: null,
@@ -26,19 +26,19 @@ module.exports = {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
-        responsibleEmail:{
+        responsibleEmail: {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
-        responsiblePosition:{
-          defaultValue: null,
-          type: Sequelize.STRING(255)
-        },
-        responsiblePhone:{
+        responsiblePosition: {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
-        responsibleMobile:{
+        responsiblePhone: {
+          defaultValue: null,
+          type: Sequelize.STRING(255),
+        },
+        responsibleMobile: {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
@@ -46,7 +46,7 @@ module.exports = {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
-        postalCode:{
+        postalCode: {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
@@ -66,7 +66,7 @@ module.exports = {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
-        city:{
+        city: {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
@@ -78,7 +78,7 @@ module.exports = {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
-        bankAgency:{
+        bankAgency: {
           defaultValue: null,
           type: Sequelize.STRING(255),
         },
@@ -93,7 +93,7 @@ module.exports = {
         phoneNumber: {
           defaultValue: null,
           type: Sequelize.STRING(255),
-        } ,
+        },
         situation: {
           defaultValue: null,
           type: Sequelize.STRING(255),
@@ -103,21 +103,27 @@ module.exports = {
           type: Sequelize.STRING(255),
         },
         createdAt: {
-          type:Sequelize.DATE,
-          allowNull:false,
+          type: Sequelize.DATE,
+          allowNull: false,
         },
         updatedAt: {
-          allowNull:false,
+          allowNull: false,
           type: Sequelize.DATE,
         },
         cnpjId: {
-          defaultValue:null,
           type: Sequelize.INTEGER(11),
+          onUpdate: "CASCADE",
+          onDelete: "CASCADE",
+          allowNull: true,
+          references: {
+            model: "cnpjs",
+            key: "id",
+          },
         },
         email: {
           defaultValue: null,
           type: Sequelize.STRING(255),
-        }
+        },
       },
       {
         engine: "InnoDB",
