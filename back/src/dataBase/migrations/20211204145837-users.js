@@ -17,6 +17,7 @@ module.exports = {
         email: {
           allowNull: false,
           type: Sequelize.STRING(255),
+          unique:true
         },
         phoneNumber: {
           defaultValue: null,
