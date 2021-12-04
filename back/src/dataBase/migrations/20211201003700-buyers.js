@@ -96,7 +96,7 @@ module.exports = {
         onDelete: 'CASCADE',
         allowNull:true,
         references: {
-          model: 'cnpj',
+          model: 'cnpjs',
           key: 'id'
         ,
       },

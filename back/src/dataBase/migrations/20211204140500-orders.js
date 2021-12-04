@@ -12,7 +12,8 @@ module.exports = {
         },
         orderNfId: {
           allowNull: false,
-          type: Sequelize.STRING(255)
+          type: Sequelize.STRING(255),
+          unique:true,
         },
         orderNumber: {
           allowNull: false,
@@ -21,14 +22,17 @@ module.exports = {
         orderPath: {
           defaultValue: null,
           type: Sequelize.STRING(255),
+          unique:true,
         },
         orderFileName: {
           defaultValue: null,
           type: Sequelize.STRING(255),
+          unique:true,
         },
         orderOriginalName: {
           defaultValue: null,
           type: Sequelize.STRING(255),
+          unique:true,
         },
         emissionDate: {
           defaultValue: null,
@@ -63,20 +67,44 @@ module.exports = {
           type: Sequelize.DATE,
         },
         cnpjId: {
-          defaultValue: null,
           type: Sequelize.INTEGER(11),
+          allowNull:true,
+          onUpdate:'CASCADE',
+          onDelete: 'CASCADE',
+          references: {
+            model: 'cnpjs',
+            key: 'id'
+          }
         },
         userId: {
-          defaultValue: null,
           type: Sequelize.INTEGER(11),
+          allowNull:true,
+          onUpdate:'CASCADE',
+          onDelete: 'CASCADE',
+          references: {
+            model: 'users',
+            key: 'id'
+          }
         },
         buyerId: {
-          defaultValue: null,
           type: Sequelize.INTEGER(11),
+          allowNull:true,
+          onUpdate:'CASCADE',
+          onDelete: 'CASCADE',
+          references: {
+            model: 'buyers',
+            key: 'id'
+          }
         },
         providerId: {
-          defaultValue: null,
           type: Sequelize.INTEGER(11),
+          allowNull:true,
+          onUpdate:'CASCADE',
+          onDelete: 'CASCADE',
+          references: {
+            model: 'providers',
+            key: 'id'
+          }
         },
         orderStatusBuyer: {
           defaultValue: 0,
