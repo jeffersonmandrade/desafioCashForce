@@ -92,8 +92,15 @@ module.exports = {
       },
       cnpjId: {
         type: Sequelize.INTEGER(11),
-        defaultValue: null,
+        onUpdate:'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull:true,
+        references: {
+          model: 'cnpj',
+          key: 'id'
+        ,
       },
+    },
       confirm: {
         defaultValue:1,
         type: Sequelize.TINYINT(1),
