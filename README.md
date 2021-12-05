@@ -15,7 +15,7 @@ O teste proposto pela cashForce consiste em criar uma API, conectada ao banco de
 - Use do Styled-Componentes para fazer o CSS da aplicção.
 
 ## Primeiros passos:
-- ###Clone o repositório.
+#### Clone o repositório.
 - Entre na pasta `desafioCashForce`.
 - Entre na pasta front e digite o comando no terminal `npm install`.
 - Apos o termino entre na pasta back e digite o mesmo comando `npm install`.
