@@ -14,7 +14,7 @@ O teste proposto pela cashForce consiste em criar uma API, conectada ao banco de
 - Fazer junção nas tabelas utilizando o Sequelize.
 - Use do Styled-Componentes para fazer o CSS da aplicção.
 
-##Primeiros passos:
+## Primeiros passos:
 - ###Clone o repositório.
 - Entre na pasta `desafioCashForce`.
 - Entre na pasta front e digite o comando no terminal `npm install`.
@@ -34,15 +34,15 @@ MYSQL_PORT=3306
 - Agora você pode digitar `npm run dev` que a aplicação será iniciada.
 ####  A API vai ser iniciada na porta 3001.
 
-##Iniciando o Front-End
+## Iniciando o Front-End:
 
 - Em outro terminal, entra na pasta Front.
 - Digite o comando `npm start`
 #### A aplicação vai iniciar na porta 3000.
 ---
-<h2>Próximos passos</h2>
+<h2>Próximos passos:</h2>
 
-Para fins didáticos refazer o front usando Vue.js.
+### Para fins didáticos refazer o front usando Vue.js.
 ---
 
 ``Feedbacks são sempre bem vindos.``
