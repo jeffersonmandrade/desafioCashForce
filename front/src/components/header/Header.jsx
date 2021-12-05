@@ -1,10 +1,17 @@
 import React from 'react'
-import logo from '../../image/logo.png'
+import * as S from "./style"
+
 
 export default function Header() {
   return (
-    <div>
-      <img src={logo} alt="logo cashForce" />
-    </div>
+    <S.header>
+      <S.headerSistema>
+        <S.group637>
+          <S.fame>
+          <S.line32></S.line32>
+          </S.fame>
+        </S.group637>
+      </S.headerSistema>
+    </S.header>
   )
 }
