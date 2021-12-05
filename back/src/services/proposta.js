@@ -1,8 +1,13 @@
 const { order } =require('../dataBase/models')
 
+
 const getAllOrders = async () => {
-  const result = await order.findAll();
-  return result;
+  try{
+    const result = await order.findAll({include:['provider','buyer']});
+    return result;
+  }catch(e){
+    console.log(e)
+  }
 }
 
 module.exports = {getAllOrders}
