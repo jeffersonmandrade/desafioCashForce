@@ -1,6 +1,7 @@
 # Teste CashForce
 O teste proposto pela cashForce consiste em criar uma API, conectada ao banco de dados fornecido pela mesma. Após a criação da API, foi solicitado também criar uma tela desenhada no figma.
 
+
 ## Principais Stacks utilizadas:
 ```sh
  - Node.js.
@@ -32,7 +33,7 @@ MYSQL_PORT=3306
 - Você deve digitar o comando npm run db:reset.Este comando vai  inicializar o sequelize e criar as tabelas e adicionar alguns dadospré definido.
 
 - Agora você pode digitar `npm run dev` que a aplicação será iniciada.
-####  A API vai ser iniciada na porta 3001.
+#### A API vai ser iniciada na porta 3001.
 
 ## Iniciando o Front-End:
 
