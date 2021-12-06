@@ -29,8 +29,8 @@ MYSQL_USER="seu_usuario_aqui"
 MYSQL_HOST=localhost
 MYSQL_PORT=3306
  ````
- ##### Certifiquice de ter inicializado o <strong>banco de dados</strong>
-- Você deve digitar o comando npm run db:reset.Este comando vai  inicializar o sequelize e criar as tabelas e adicionar alguns dadospré definido.
+ ##### Certifique-se de ter inicializado o <strong>banco de dados</strong>
+- Você deve digitar o comando `npm run db:reset`.Este comando vai  inicializar o sequelize,criar as tabelas e adicionar alguns dados pré definido.
 
 - Agora você pode digitar `npm run dev` que a aplicação será iniciada.
 #### A API vai ser iniciada na porta 3001.
@@ -44,6 +44,7 @@ MYSQL_PORT=3306
 <h2>Próximos passos:</h2>
 
 ### Para fins didáticos refazer o front usando Vue.js.
+ 
 ---
 
 ``Feedbacks são sempre bem vindos.``
