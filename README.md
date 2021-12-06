@@ -13,7 +13,7 @@ O teste proposto pela cashForce consiste em criar uma API, conectada ao banco de
 ## Habilidades Desenvolvidas:
 - Configurar o Sequelize.
 - Fazer junção nas tabelas utilizando o Sequelize.
-- Use do Styled-Componentes para fazer o CSS da aplicção.
+- Uso do styled-components para fazer o CSS da aplicção.
 
 ## Primeiros passos:
 #### Clone o repositório.
