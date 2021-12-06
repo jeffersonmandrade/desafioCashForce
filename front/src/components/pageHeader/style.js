@@ -10,7 +10,7 @@ width: 255px;
 height: 53px;
 left: 336px;
 top: 104px;
-background-color: red;
+align-items: baseline;
 `
 export const img = styled.img`
 position: absolute;
@@ -21,13 +21,15 @@ bottom: 20.57%;
 border: 1px solid #021B51;
 box-sizing: border-box;
 `
-export const h3 = styled.h3`
+export const h3 = styled.span`
 font-family: DM Sans;
 font-style: normal;
 font-weight: bold;
 font-size: 24px;
 line-height: 28px;
-color:rgba(2, 27, 81, 1);
+align-items:baseline;
+margin-left: 50px;
+margin-top: 1px;
 `
 export const p = styled.p`
 width: 255;
@@ -42,8 +44,8 @@ line-height: 20px;
 
 export const span = styled.span`
 display: flex;
-flex-wrap: wrap;
 width: 255;
-height: 20px;
-background-color: blue;
+height: 25px;
+align-items: baseline;
+justify-content: center;
 `
